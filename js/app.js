@@ -1,31 +1,5 @@
 'use strict';
 
-// const mainPage = {
-//   headerName: 'Salmon Cookies',
-//   image: './image/salmon.png',
-//   sales: './sales.html',
-
-//   render: function() {
-//     const parentElement = document.getElementById('fish');
-//     console.log('Saja');
-//     const h2Element=document.createElement('h2');
-//     parentElement.appendChild(h2Element);
-//     h2Element.textContent= this.headerName;
-
-//     const imageElement= document.createElement('img');
-//     parentElement.appendChild(imageElement);
-//     imageElement.setAttribute('src',this.image);
-
-//     const linkSales=document.createElement('a');
-//     parentElement.appendChild(linkSales);
-//     linkSales.textContent = 'Sales Page';
-//     linkSales.href= this.sales;
-//   }
-// };
-
-// mainPage.render();
-
-
 let timeOFsales = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 let total = 0;
 
@@ -40,7 +14,6 @@ let Seattle = {
     for(let i=0; i<timeOFsales.length; i++){
       this.numberOfcustomer.push(Math.ceil(getRandomNumber(this.minOfCustomer, this.maxOfCustomer)* this.avgOFcookies));
       total=total+this.numberOfcustomer[i];
-    //   console.log(this.numberOfcustomer);
     }
 
   },
@@ -49,12 +22,9 @@ let Seattle = {
     const parent2Element = document.getElementById('Home');
 
     const h2Element = document.createElement('h2');
-    // console.log(ulElement);
     parent2Element.appendChild(h2Element);
     h2Element.textContent='Seattle';
-    // console.log(parent2Element);
     const ulElement = document.createElement('ul');
-    // console.log(ulElement);
     parent2Element.appendChild(ulElement);
 
 
