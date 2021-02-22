@@ -1,7 +1,6 @@
 'use strict';
 
 let timeOFsales = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-let total = 0;
 let all = [];
 function Cookies(location, minOfCustomer, maxOfCustomer, avgOFcookies) {
   this.location = location;
@@ -9,19 +8,16 @@ function Cookies(location, minOfCustomer, maxOfCustomer, avgOFcookies) {
   this.maxOfCustomer = maxOfCustomer;
   this.avgOFcookies = avgOFcookies;
   this.numberOfcustomer = [];
+  this.totalOftotal=0;
   all.push(this);
-
-
 }
 
 Cookies.prototype.numberOfcustomerperhoure = function () {
   for (let i = 0; i < timeOFsales.length; i++) {
     this.numberOfcustomer.push(Math.ceil(getRandomNumber(this.minOfCustomer, this.maxOfCustomer) * this.avgOFcookies));
-    console.log(this.numberOfcustomer);
   }
 };
 let parentElement = document.getElementById('Home');
-
 let tableElement = document.createElement('table');
 parentElement.appendChild(tableElement);
 
@@ -58,14 +54,13 @@ Cookies.prototype.render = function () {
     td2Element = document.createElement('td');
     tr2Element.appendChild(td2Element);
     td2Element.textContent = this.numberOfcustomer[i];
-    total = total + this.numberOfcustomer[i];
-
+    this.totalOftotal = this.totalOftotal+ this.numberOfcustomer[i];
   }
   td2Element = document.createElement('td');
   tr2Element.appendChild(td2Element);
-  td2Element.textContent = total;
-
+  td2Element.textContent = this.totalOftotal;
 };
+
 
 function footerTotal() {
   let tr6Element = document.createElement('tr');
@@ -73,22 +68,27 @@ function footerTotal() {
   let td6Element = document.createElement('td');
   tr6Element.appendChild(td6Element);
   td6Element.textContent = 'Totals';
-
+  let sum=0;
   let totalArr=[];
   for (let i = 0; i < all[0].numberOfcustomer.length; i++) {
     let total = 0;
     for (let j = 0; j < all.length; j++) {
       total +=all[j].numberOfcustomer[i];
+      sum= sum + all[j].totalOftotal;
     }
     totalArr.push(total);
   }
-  
+
   for(let s=0; s < totalArr.length; s++){
     td6Element = document.createElement('td');
     tr6Element.appendChild(td6Element);
     td6Element.textContent =totalArr[s];
   }
-  //console.log('ff',totalArr);
+  const td7Element = document.createElement('td');
+  tr6Element.appendChild(td7Element);
+  td7Element.textContent=sum;
+  
+
 }
 
 const Seattle = new Cookies('Seattle', 23, 65, 6.3);
