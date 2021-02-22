@@ -10,8 +10,6 @@ function Cookies(location, minOfCustomer, maxOfCustomer, avgOFcookies) {
   this.avgOFcookies = avgOFcookies;
   this.numberOfcustomer = [];
   all.push(this);
-
-
 }
 
 Cookies.prototype.numberOfcustomerperhoure = function () {
@@ -21,7 +19,6 @@ Cookies.prototype.numberOfcustomerperhoure = function () {
   }
 };
 let parentElement = document.getElementById('Home');
-
 let tableElement = document.createElement('table');
 parentElement.appendChild(tableElement);
 
@@ -59,12 +56,10 @@ Cookies.prototype.render = function () {
     tr2Element.appendChild(td2Element);
     td2Element.textContent = this.numberOfcustomer[i];
     total = total + this.numberOfcustomer[i];
-
   }
   td2Element = document.createElement('td');
   tr2Element.appendChild(td2Element);
   td2Element.textContent = total;
-
 };
 
 function footerTotal() {
@@ -82,13 +77,13 @@ function footerTotal() {
     }
     totalArr.push(total);
   }
-  
+
   for(let s=0; s < totalArr.length; s++){
     td6Element = document.createElement('td');
     tr6Element.appendChild(td6Element);
     td6Element.textContent =totalArr[s];
   }
-  //console.log('ff',totalArr);
+ 
 }
 
 const Seattle = new Cookies('Seattle', 23, 65, 6.3);
