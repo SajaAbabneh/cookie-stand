@@ -1,22 +1,24 @@
 'use strict';
 
 let timeOFsales = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-let total=0;
-//let all = [];
+
 function Cookies(location, minOfCustomer, maxOfCustomer, avgOFcookies) {
   this.location = location;
   this.minOfCustomer = minOfCustomer;
   this.maxOfCustomer = maxOfCustomer;
   this.avgOFcookies = avgOFcookies;
   this.numberOfcustomer = [];
-  this.totalOftotal=0;
-  //all.push(this);
+  this.hourlyTotal = 0;
+
 }
-//console.log(all);
+
 
 Cookies.prototype.numberOfcustomerperhoure = function () {
   for (let i = 0; i < timeOFsales.length; i++) {
-    this.numberOfcustomer.push(Math.ceil(getRandomNumber(this.minOfCustomer, this.maxOfCustomer) * this.avgOFcookies));
+    let houreSales = (Math.ceil(getRandomNumber(this.minOfCustomer, this.maxOfCustomer) * this.avgOFcookies));
+    this.numberOfcustomer.push(houreSales);
+    this.hourlyTotal += houreSales;
+
   }
 };
 let parentElement = document.getElementById('Home');
@@ -33,18 +35,17 @@ function headerName() {
   th1Element.textContent = 'Location';
 
   for (let i = 0; i < timeOFsales.length; i++) {
-    th1Element = document.createElement('th');
-    tr1Element.appendChild(th1Element);
-    th1Element.textContent = timeOFsales[i];
+    const th2Element = document.createElement('th');
+    tr1Element.appendChild(th2Element);
+    th2Element.textContent = timeOFsales[i];
   }
-  th1Element = document.createElement('th');
-  tr1Element.appendChild(th1Element);
-  th1Element.textContent = ' Daily Location Total';
+  const th3Element = document.createElement('th');
+  tr1Element.appendChild(th3Element);
+  th3Element.textContent = ' Daily Location Total';
 }
 headerName();
 
 Cookies.prototype.render = function () {
-
   const tr2Element = document.createElement('tr');
   tableElement.appendChild(tr2Element);
 
@@ -56,40 +57,30 @@ Cookies.prototype.render = function () {
     td2Element = document.createElement('td');
     tr2Element.appendChild(td2Element);
     td2Element.textContent = this.numberOfcustomer[i];
-    this.totalOftotal = this.totalOftotal+ this.numberOfcustomer[i];
+
   }
-  td2Element = document.createElement('td');
-  tr2Element.appendChild(td2Element);
-  td2Element.textContent = this.totalOftotal;
+  const td3Element = document.createElement('td');
+  tr2Element.appendChild(td3Element);
+  td3Element.textContent = this.hourlyTotal;
 };
 
 
 function footerTotal() {
   let tr6Element = document.createElement('tr');
   tableElement.appendChild(tr6Element);
-  let td6Element = document.createElement('td');
-  tr6Element.appendChild(td6Element);
-  td6Element.textContent = 'Totals';
-  // let sum=0;
-  // let totalArr=[];
-  // for (let i = 0; i < all[0].numberOfcustomer.length; i++) {
-  //   let total = 0;
-  //   for (let j = 0; j < all.length; j++) {
-  //     total +=all[j].numberOfcustomer[i];
-  //     sum= sum + all[j].totalArr;
-  //   }
-  //   totalArr.push(total);
-  // }
+  let th6Element = document.createElement('th');
+  tr6Element.appendChild(th6Element);
+  th6Element.textContent = 'Totals';
 
-  // for(let s=0; s < totalArr.length; s++){
-  //   td6Element = document.createElement('td');
-  //   tr6Element.appendChild(td6Element);
-  //   td6Element.textContent =totalArr[s];
-  // }
-  // const td7Element = document.createElement('td');
-  // tr6Element.appendChild(td7Element);
-  // td7Element.textContent=sum;
-  
+  for (let i = 0; i < timeOFsales.length; i++) {
+    let th7Element = document.createElement('th');
+    tr6Element.appendChild(th7Element);
+    th7Element.textContent = Seattle.numberOfcustomer[i] + Tokyo.numberOfcustomer[i] + Dubai.numberOfcustomer[i] + Paris.numberOfcustomer[i] + Lima.numberOfcustomer[i];
+
+  }
+  let th8Element = document.createElement('th');
+  tr6Element.appendChild(th8Element);
+  th8Element.textContent = Seattle.hourlyTotal + Tokyo.hourlyTotal + Dubai.hourlyTotal + Paris.hourlyTotal + Lima.hourlyTotal;
 
 }
 
@@ -109,7 +100,7 @@ const Lima = new Cookies('Lima', 2, 16, 4.6);
 Lima.numberOfcustomerperhoure();
 Lima.render();
 footerTotal();
-console.log(all);
+
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
