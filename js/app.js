@@ -84,6 +84,49 @@ function footerTotal() {
 
 }
 
+const formElement=document.getElementById('addnewitem');
+
+formElement.addEventListener('submit',function(event){
+  event.preventDefault();
+
+  tableElement.removeChild(tableElement.lastChild);
+
+  const location= event.target.Location.value;
+  console.log(location);
+
+  const minCustomer= parseInt(event.target.mincustomer.value);
+  console.log(minCustomer);
+  const maxCustomer=parseInt(event.target.maxcustomer.value);
+  console.log(maxCustomer);
+  const avgCookies=parseInt(event.target.avgcookies.value);
+  console.log(avgCookies);
+
+  formElement.reset;
+  const newItem= new Cookies(location,minCustomer,maxCustomer,avgCookies);
+  console.log(newItem);
+  newItem.numberOfcustomerperhoure();
+  newItem.render();
+
+  let tr6Element = document.createElement('tr');
+  tableElement.appendChild(tr6Element);
+  let th6Element = document.createElement('th');
+  tr6Element.appendChild(th6Element);
+  th6Element.textContent = 'Totals';
+
+  for (let i = 0; i < timeOFsales.length; i++) {
+    let th7Element = document.createElement('th');
+    tr6Element.appendChild(th7Element);
+    th7Element.textContent = Seattle.numberOfcustomer[i] + Tokyo.numberOfcustomer[i] + Dubai.numberOfcustomer[i] + Paris.numberOfcustomer[i] + Lima.numberOfcustomer[i]+newItem.numberOfcustomer[i];
+
+  }
+  let th8Element = document.createElement('th');
+  tr6Element.appendChild(th8Element);
+  th8Element.textContent = Seattle.hourlyTotal + Tokyo.hourlyTotal + Dubai.hourlyTotal + Paris.hourlyTotal + Lima.hourlyTotal + newItem.hourlyTotal;
+
+
+
+});
+
 const Seattle = new Cookies('Seattle', 23, 65, 6.3);
 Seattle.numberOfcustomerperhoure();
 Seattle.render();
@@ -105,3 +148,25 @@ footerTotal();
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+// const formElement=document.getElementById('addnewitem');
+
+// formElement.addEventListener('submit',function(event){
+//   event.preventDefault();
+
+//   const location= event.target.Location.value;
+//   console.log(location);
+
+//   const minCustomer= parseInt(event.target.mincustomer.value);
+//   console.log(minCustomer);
+//   const maxCustomer=parseInt(event.target.maxcustomer.value);
+//   console.log(maxCustomer);
+//   const avgCookies=parseInt(event.target.avgcookies.value);
+//   console.log(avgCookies);
+
+//   formElement.reset;
+//   const newItem= new Cookies(location,minCustomer,maxCustomer,avgCookies);
+//   newItem.render();
+
+
+// });

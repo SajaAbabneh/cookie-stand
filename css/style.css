@@ -3,7 +3,13 @@
 }
 
 
+/* table{
+  width: 100%;
+  border: 80px solid #ccc;
+  
+} */
 td, th {
+ 
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
@@ -13,4 +19,8 @@ td, th {
   th {
     background: #28527a;
     color: #f4d160;
+  }
+  fieldset {
+    border: 2px solid #000;
+    padding: 10px;
   }
