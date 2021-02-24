@@ -92,18 +92,13 @@ formElement.addEventListener('submit',function(event){
   tableElement.removeChild(tableElement.lastChild);
 
   const location= event.target.Location.value;
-  console.log(location);
-
   const minCustomer= parseInt(event.target.mincustomer.value);
-  console.log(minCustomer);
   const maxCustomer=parseInt(event.target.maxcustomer.value);
-  console.log(maxCustomer);
   const avgCookies=parseInt(event.target.avgcookies.value);
-  console.log(avgCookies);
+
 
   formElement.reset;
   const newItem= new Cookies(location,minCustomer,maxCustomer,avgCookies);
-  console.log(newItem);
   newItem.numberOfcustomerperhoure();
   newItem.render();
 
@@ -149,24 +144,3 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// const formElement=document.getElementById('addnewitem');
-
-// formElement.addEventListener('submit',function(event){
-//   event.preventDefault();
-
-//   const location= event.target.Location.value;
-//   console.log(location);
-
-//   const minCustomer= parseInt(event.target.mincustomer.value);
-//   console.log(minCustomer);
-//   const maxCustomer=parseInt(event.target.maxcustomer.value);
-//   console.log(maxCustomer);
-//   const avgCookies=parseInt(event.target.avgcookies.value);
-//   console.log(avgCookies);
-
-//   formElement.reset;
-//   const newItem= new Cookies(location,minCustomer,maxCustomer,avgCookies);
-//   newItem.render();
-
-
-// });
