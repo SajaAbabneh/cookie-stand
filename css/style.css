@@ -1,26 +1,112 @@
+.headerr{
+  height: 105px;
+  background:#eae3c8;
+}
+body{
+  background-color: #c2b092;
+}
 .header{
     text-align: center;
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:brown;
+    margin-bottom: 30px;
 }
+.sales{
+  margin-left: 530px;
+  color:#85603f;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.fish1{
+width: 225px;
+height: 220px;
+margin-left: 130px;
+margin-right: 40px;
+margin-top: 35px;
+}
+.fish2{
+  width: 225px;
+height: 220px;
+margin-right: 40px;
+margin-top: 35px;
+}
+.fish3{
+  width: 225px;
+height: 220px;
+margin-right: 40px;
+margin-top: 35px;
+}
+.fish4{
+  width: 225px;
+  height: 220px;
+  margin-top: 35px;
 
+}
+.list{
+  display: inline-flex;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+.h{
+  font-size: x-large;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.fontt{
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+.salmon1{
+  width: 225px;
+  height: 220px;
+  margin-right: 70px;
+}
+.salmon2{
+  width: 225px;
+  height: 220px;
+}
+.salmon3{
+  width: 225px;
+  height: 220px;
+  margin-right: 70px;
 
-/* table{
+}
+.last{
+  margin-top: 30px;
+  margin-left: 265px;
+}
+#addnewitem{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 33px;
+  line-height: 2.5;
+}
+.field{
+  border: 5px solid #a1cae2;
+}
+table{
   width: 100%;
-  border: 80px solid #ccc;
-  
-} */
-td, th {
- 
-    border: 1px solid #ccc;
-    padding: 5px;
-    text-align: center;
-    background-color:lightgoldenrodyellow;
   }
-  
-  th {
-    background: #28527a;
-    color: #f4d160;
-  }
-  fieldset {
-    border: 2px solid #000;
-    padding: 10px;
-  }
+table tr th{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border:#bd9354 solid;
+  color: #4a47a3;
+}
+table tr td{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border: #bd9354 solid;
+  color: #413c69;
+
+}
+.homepage{
+  font-size: x-large;
+    float: right;
+    color: #4a47a3;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
